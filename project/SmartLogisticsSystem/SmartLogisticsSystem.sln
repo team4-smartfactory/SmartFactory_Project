@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLogisticsSystem", "SmartLogisticsSystem\SmartLogisticsSystem.csproj", "{4018A4B9-37F8-408D-BED3-E86CB7D1DCF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4018A4B9-37F8-408D-BED3-E86CB7D1DCF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4018A4B9-37F8-408D-BED3-E86CB7D1DCF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4018A4B9-37F8-408D-BED3-E86CB7D1DCF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4018A4B9-37F8-408D-BED3-E86CB7D1DCF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF7CBFF9-871F-45A5-95F4-EA635F5D3762}
+	EndGlobalSection
+EndGlobal

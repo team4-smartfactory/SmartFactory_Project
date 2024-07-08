@@ -1,0 +1,52 @@
+﻿<Window x:Class="SmartLogisticsSystem.DbAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartLogisticsSystem"
+        mc:Ignorable="d"
+        Title="스마트 물류 시스템" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="90" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,10,0" Grid.Column="0">
+            <Label Content="신규 품목 등록" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,0,5,5" Grid.Column="0">
+                <Canvas Grid.Column="0">
+                    <Button Content="실행" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="94" Canvas.Top="27" Grid.Column="0"/>
+                    <Button Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="178" Canvas.Top="27"/>
+                    <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="262" Canvas.Top="27"/>
+                    <Button Content="종료" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="346" Canvas.Top="27" RenderTransformOrigin="-1.009,0.686"/>
+                </Canvas>
+            </Border>
+
+        </Grid>
+
+        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="GrdResults" Margin="5,5,5,5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding check}" Header="선택" FontWeight="Bold" />
+                <DataGridTextColumn Binding="{Binding check}" Header="품목 코드" />
+                <DataGridTextColumn Binding="{Binding check}" Header="분 류" />
+                <DataGridTextColumn Binding="{Binding check}" Header="제 품 명" />
+                <DataGridTextColumn Binding="{Binding check}" Header="등록일자" />
+                <DataGridTextColumn Binding="{Binding check}" Header="구분" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+    </Grid>
+</Window>

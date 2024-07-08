@@ -15,7 +15,6 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Margin="0,0,10,0" Grid.Column="0">
@@ -25,10 +24,11 @@
         <Grid Grid.Row="1" Grid.Column="0">
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,0,5,5" Grid.Column="0">
                 <Canvas Grid.Column="0">
-                    <Button Content="실행" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="94" Canvas.Top="27" Grid.Column="0"/>
-                    <Button Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="178" Canvas.Top="27"/>
-                    <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="262" Canvas.Top="27"/>
-                    <Button Content="종료" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="346" Canvas.Top="27" RenderTransformOrigin="-1.009,0.686"/>
+                    <Button Content="등록" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="354" Canvas.Top="44" Grid.Column="0"/>
+                    <Button Content="실행" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="438" Canvas.Top="44" Grid.Column="0"/>
+                    <Button Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="522" Canvas.Top="44"/>
+                    <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="606" Canvas.Top="44"/>
+                    <Button Content="종료" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="690" Canvas.Top="44" RenderTransformOrigin="-1.009,0.686"/>
                 </Canvas>
             </Border>
 

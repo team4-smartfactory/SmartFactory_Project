@@ -20,4 +20,8 @@
     <Resource Include="Image\Logistic.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helper\" />
+  </ItemGroup>
+
 </Project>

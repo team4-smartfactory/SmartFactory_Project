@@ -5,16 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartLogisticsSystem"
         mc:Ignorable="d"
-        Title="스마트 물류 시스템" Height="450" Width="800">
-    <Grid>
+        Title="스마트 물류 시스템" Height="350
+" Width="650">
+    <Grid RenderTransformOrigin="0.503,0.538">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="90" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3.5*" />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Margin="0,0,10,0" Grid.Column="0">
@@ -25,11 +28,11 @@
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,0,5,5" Grid.Column="0">
                 <Canvas Grid.Column="0">
 
-                    <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="94" Canvas.Top="27" Grid.Column="0" Click="BtnRun_Click"/>
-                    <Button x:Name="BtnPause" Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="178" Canvas.Top="27" Click="BtnPause_Click"/>
-                    <Button x:Name="BtnSave" Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="262" Canvas.Top="27"/>
-                    <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="346" Canvas.Top="27" RenderTransformOrigin="-1.009,0.686"/>
-                    <Button x:Name="BtnConnect" Content="연결" Width="79" Height="30" Canvas.Left="10" Canvas.Top="27"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="BtnConnect_Click"/>
+                    <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Center" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="94" Canvas.Top="10" Grid.Column="0" Click="BtnRun_Click"/>
+                    <Button x:Name="BtnPause" Content="일시정지" HorizontalAlignment="Center" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="178" Canvas.Top="10" Click="BtnPause_Click"/>
+                    <Button x:Name="BtnSave" Content="저장" HorizontalAlignment="Center" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="262" Canvas.Top="10"/>
+                    <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Center" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="346" Canvas.Top="10" RenderTransformOrigin="-1.009,0.686"/>
+                    <Button x:Name="BtnConnect" Content="연결" Width="79" Height="30" Canvas.Left="10" Canvas.Top="10"  HorizontalAlignment="Center" VerticalAlignment="Top" Click="BtnConnect_Click"/>
 
                 </Canvas>
             </Border>
@@ -38,16 +41,40 @@
 
         <DataGrid Grid.Row="2" Grid.Column="0" x:Name="GrdResults" Margin="5,5,5,5">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding check}" Header="선택" FontWeight="Bold" />
-                <DataGridTextColumn Binding="{Binding check}" Header="품목 코드" />
-                <DataGridTextColumn Binding="{Binding check}" Header="분 류" />
-                <DataGridTextColumn Binding="{Binding check}" Header="제 품 명" />
-                <DataGridTextColumn Binding="{Binding check}" Header="등록일자" />
-                <DataGridTextColumn Binding="{Binding check}" Header="구분" />
+                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="품목 코드" />
+                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="분 류" />
+                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="제 품 명" />
+                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="등록일자" />
             </DataGrid.Columns>
         </DataGrid>
 
+        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Margin="0,5,0,0" >
+            <Label.Content>
+                <TextBlock Text="품목번호" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" />
+            </Label.Content>
+        </Label>
+        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,5,0">
+            <Label.Content>
+                <TextBlock Text="분류" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            </Label.Content>
+        </Label>
+        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0,75,5,0">
+            <Label.Content>
+                <TextBlock Text="제품명" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            </Label.Content>
+        </Label>
+        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="1,112,0,0">
+            <Label.Content>
+                <TextBlock Text="등록일자" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Label.Content>
+        </Label>
 
+        <TextBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
+        <ComboBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <TextBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Margin="0,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
+        <DatePicker Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Button Content="수정" Grid.Row="2" Grid.Column="2" Height="30" Width="70" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Bottom" />
 
 
     </Grid>

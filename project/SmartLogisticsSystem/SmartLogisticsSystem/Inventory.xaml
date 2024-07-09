@@ -25,23 +25,22 @@
                 <Label Content="조회건수" Height="24" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Left" Canvas.Left="495" Canvas.Top="3"/>
                 <TextBox Width="38" Height="24" VerticalAlignment="Center" Canvas.Left="558" Canvas.Top="4" HorizontalAlignment="Left"/>
 
-                <Button Content="조회" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="514" Canvas.Top="37"/>
+                <Button Content="조회" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="514" Canvas.Top="37" Click="Button_Click"/>
                 <Button Content="삭제" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="598" Canvas.Top="38"/>
                 <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="682" Canvas.Top="37"/>
                 <Label Content="분류" Height="24" FontSize="12" Canvas.Left="27" Canvas.Top="36" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.938,0.548"/>
-                <CheckBox Content="A" Canvas.Left="70" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <CheckBox Content="B" Canvas.Left="103" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <CheckBox Content="C" Canvas.Left="135" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <CheckBox Content="R" Canvas.Left="70" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <CheckBox Content="G" Canvas.Left="103" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <CheckBox Content="B" Canvas.Left="135" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Canvas>
         </Border>
 
         <DataGrid Grid.Row="2" Grid.Column="0" x:Name="GrdResults" Margin="5,5,5,5" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding check}" Header="선택" FontWeight="Bold" />
-                <DataGridTextColumn Binding="{Binding check}" Header="품목 코드" />
-                <DataGridTextColumn Binding="{Binding check}" Header="분 류" />
-                <DataGridTextColumn Binding="{Binding check}" Header="제 품 명" />
-                <DataGridTextColumn Binding="{Binding check}" Header="등록일자" />
+                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="품목 코드" />
+                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="분 류" />
+                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="제 품 명" />
+                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="등록일자" />
             </DataGrid.Columns>
         </DataGrid>
 

@@ -29,5 +29,11 @@ namespace SmartLogisticsSystem
         {
 
         }
+
+        // 실시간조회 버튼 클릭
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -24,19 +24,13 @@
         <Grid Grid.Row="1" Grid.Column="0">
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,0,5,5" Grid.Column="0">
                 <Canvas Grid.Column="0">
-<<<<<<< Updated upstream
-                    <Button Content="등록" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="354" Canvas.Top="44" Grid.Column="0"/>
-                    <Button Content="실행" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="438" Canvas.Top="44" Grid.Column="0"/>
-                    <Button Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="522" Canvas.Top="44"/>
-                    <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="606" Canvas.Top="44"/>
-                    <Button Content="종료" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="690" Canvas.Top="44" RenderTransformOrigin="-1.009,0.686"/>
-=======
+
                     <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="94" Canvas.Top="27" Grid.Column="0" Click="BtnRun_Click"/>
                     <Button x:Name="BtnPause" Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="178" Canvas.Top="27" Click="BtnPause_Click"/>
                     <Button x:Name="BtnSave" Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="262" Canvas.Top="27"/>
                     <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="346" Canvas.Top="27" RenderTransformOrigin="-1.009,0.686"/>
                     <Button x:Name="BtnConnect" Content="연결" Width="79" Height="30" Canvas.Left="10" Canvas.Top="27"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="BtnConnect_Click"/>
->>>>>>> Stashed changes
+
                 </Canvas>
             </Border>
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SmartLogisticsSystem"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="SmartLogisticsSystem.Inventory"
         mc:Ignorable="d"
-        Title="스마트 물류 시스템" Height="450" Width="800">
+        Title="스마트 물류 시스템" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -32,7 +32,7 @@
 
                 <Button Content="조회" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="514" Canvas.Top="37" Click="Button_Click"/>
                 <Button Content="삭제" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="598" Canvas.Top="38" Click="Button_Click_1"/>
-                <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="682" Canvas.Top="37"/>
+                <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="682" Canvas.Top="37" Click="Button_Click_2"/>
             </Canvas>
         </Border>
 

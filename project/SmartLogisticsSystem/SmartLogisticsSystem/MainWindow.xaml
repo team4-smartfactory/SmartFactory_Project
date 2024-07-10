@@ -9,7 +9,7 @@
         xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.VaadinIcons"
         xmlns:local="clr-namespace:SmartLogisticsSystem" 
         mc:Ignorable="d"
-        Title="Smart Logistic System" Height="450" Width="480">
+        Title="Smart Logistic System" Height="450" Width="480" Loaded="MetroWindow_Loaded" WindowStartupLocation="CenterScreen">
     <mah:MetroWindow.IconTemplate>
         <DataTemplate>
             <iconPacks:PackIconVaadinIcons Kind="Package" Margin="10,7,0,0" Foreground="White" />

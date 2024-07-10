@@ -20,7 +20,11 @@ namespace SmartLogisticsSystem
         public MainWindow()
         {
             InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -39,5 +43,7 @@ namespace SmartLogisticsSystem
         {
             Application.Current.Shutdown();
         }
+
+        
     }
 }

@@ -18,9 +18,15 @@ namespace SmartLogisticsSystem.Models
                                                               ,[Division]
                                                               ,[Product]
                                                               ,[Date]
-                                                          FROM [dbo].[SmartLogistics]";
+                                                         FROM [dbo].[SmartLogistics]";
 
         public static readonly string DELETE_QUERY = @"DELETE FROM [dbo].[SmartLogistics] WHERE Id = @id";
+
+        public static readonly string UPDATE_QUERY = @"UPDATE [dbo].[SmartLogistics]
+                                                          SET [Division] = @Division
+                                                             ,[Product] = @Product
+                                                             ,[Date] = @Date
+                                                        WHERE Id = @Id";
 
 
     }

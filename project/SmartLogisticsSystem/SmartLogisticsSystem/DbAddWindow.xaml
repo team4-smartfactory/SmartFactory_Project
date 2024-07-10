@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartLogisticsSystem"
         mc:Ignorable="d"
-        Title="스마트 물류 시스템" Height="350
-" Width="650">
+        Title="스마트 물류 시스템" Height="350" Width="650" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid RenderTransformOrigin="0.503,0.538">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*" />

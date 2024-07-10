@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using ControlzEx.Standard;
+using Microsoft.Data.SqlClient;
 using SmartLogisticsSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,9 @@ namespace SmartLogisticsSystem
         public Inventory()
         {
             InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
         }
 
         // 실시간조회 버튼 클릭
@@ -141,5 +144,61 @@ namespace SmartLogisticsSystem
                 }
             }
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Helpers.Common.CONNSTRING))
+                {
+                    conn.Open();
+
+                    var insRes = 0;
+                    SqlCommand cmd = new SqlCommand(Models.SmartLogistics.UPDATE_QUERY, conn);
+
+                    SqlParameter prmProduct = new SqlParameter("@Product", ProdTextBox.Text);
+                    cmd.Parameters.Add(prmProduct);
+                    string divisionValue = string.Empty;
+                    if (RedCheck.IsChecked == true)
+                    {
+                        divisionValue = "레드";
+                    }
+                    else if (BlueCheck.IsChecked == true)
+                    {
+                        divisionValue = "블루";
+                    }
+                    else if (GreenCheck.IsChecked == true)
+                    {
+                        divisionValue = "그린";
+                    }
+                    SqlParameter prmDivision = new SqlParameter("@Division", divisionValue);
+                    cmd.Parameters.Add(prmDivision);;
+                    
+                    //TODO 날짜 변경은 되는데 시간 변경이 안됨 처리 해야함.
+                    SqlParameter prmDate = new SqlParameter("@Date", DatePicker.SelectedDateTime);
+                    cmd.Parameters.Add(prmDate);
+                    SqlParameter prmId = new SqlParameter("@Id", IdTextBox.Text);
+                    cmd.Parameters.Add(prmId);
+
+                    insRes += cmd.ExecuteNonQuery();
+
+                    if (insRes > 0)
+                    {
+                        // this 메시지박스의 부모창이 누구냐, FrmLoginUser
+                        MessageBox.Show(this, "저장성공!", "저장");
+                        //MessageBox.Show("저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "저장실패!", "저장");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

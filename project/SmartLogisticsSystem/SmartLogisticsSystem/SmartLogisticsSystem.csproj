@@ -23,8 +23,4 @@
     <Resource Include="Image\Logistic.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Sql\" />
-  </ItemGroup>
-
 </Project>

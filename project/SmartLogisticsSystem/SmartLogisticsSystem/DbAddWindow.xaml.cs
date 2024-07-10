@@ -26,8 +26,11 @@ namespace SmartLogisticsSystem
         public DbAddWindow()
         {
             InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
         }
 
         private void BtnRun_Click(object sender, RoutedEventArgs e)
@@ -74,5 +77,6 @@ namespace SmartLogisticsSystem
             }
         }
 
+        
     }
 }

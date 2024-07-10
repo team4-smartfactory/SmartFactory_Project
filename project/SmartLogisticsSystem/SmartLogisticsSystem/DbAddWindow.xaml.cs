@@ -1,82 +1,118 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.IO.Ports;
-using System.IO;
+using System.Windows;
 
 namespace SmartLogisticsSystem
 {
-    /// <summary>
-    // <주의사항>아두이노 IDE와 C#의 프로그램이 같은 포트를 쓸 경우 프로그램 충돌이 난다.여러가지 해결 방법이 있겠지만,
-    // 그냥 C# 프로그램을 실행시킬 때는 아두이노 IDE를 잠시 꺼주면 되겠다.
-    /// </summary>
     public partial class DbAddWindow : Window
     {
-        SerialPort port = new SerialPort();
+        SerialPort port;
+        string color;
+        string box_color;
+        string received_Data;
         public DbAddWindow()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-        }
+            // SerialPort 객체를 초기화합니다.
+            port = new SerialPort
+            {
+                PortName = "COM3",
+                BaudRate = 9600,
+                DataBits = 8,
+                Parity = Parity.None,
+                StopBits = StopBits.One,
+                Handshake = Handshake.None
+            };
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+            // SerialPort의 DataReceived 이벤트 핸들러를 추가합니다.
+            port.DataReceived += Arduino_DataReceived;
         }
 
         private void BtnRun_Click(object sender, RoutedEventArgs e)
         {
-
-            port.Write("go");
-
+            if (port.IsOpen)
+            {
+                port.Write("go");
+            }
+            else
+            {
+                MessageBox.Show("포트가 열려있지 않습니다.");
+            }
         }
+
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
-            port.Write("stop");
-
+            if (port.IsOpen)
+            {
+                port.Write("stop");
+            }
+            else
+            {
+                MessageBox.Show("포트가 열려있지 않습니다.");
+            }
         }
 
         private void BtnConnect_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                port.PortName = "COM3";
-                port.BaudRate = 9600;
-                port.DataBits = 8;
-                port.Parity = Parity.None;
-                port.StopBits = StopBits.One;
-                port.Handshake = Handshake.None;
-
-                // 포트 열기 전 디버깅 메시지 추가
-                MessageBox.Show("포트를 엽니다");
-                port.Open();
-
-                // 포트를 연 후 디버깅 메시지 추가
-                MessageBox.Show("포트를 열었습니다");
-
-                port.DiscardInBuffer();
-                if (port.IsOpen)
+                if (!port.IsOpen)
                 {
-                    MessageBox.Show("포트가 연결되었습니다");
-
+                    port.Open();
+                    MessageBox.Show("포트를 열었습니다");
+                }
+                else
+                {
+                    MessageBox.Show("포트가 이미 열려있습니다.");
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("오류가 발생했습니다: " + ex.Message);
             }
         }
 
-        
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (port.IsOpen)
+                {
+                    port.Close();
+                    MessageBox.Show("종료되었습니다");
+                }
+                else
+                {
+                    MessageBox.Show("포트가 열려있지 않습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류가 발생했습니다: " + ex.Message);
+            }
+        }
+
+        private void Arduino_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                received_Data = port.ReadLine();
+                // 비동기적으로 UI를 업데이트합니다.
+                Dispatcher.Invoke(() => {
+                    //MessageBox.Show($"{received_Data}");
+                    string[] result = received_Data.Split(',');
+                    color = result[0];
+                    box_color = result[1];
+                    MessageBox.Show($"{color} + {box_color}");
+                });
+            }
+            catch (Exception ex)
+            {
+                // 예외 처리 (필요한 경우)
+                MessageBox.Show("데이터 수신 중 오류가 발생했습니다: " + ex.Message);
+            }
+        }
     }
 }

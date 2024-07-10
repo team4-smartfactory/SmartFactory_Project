@@ -28,6 +28,14 @@ namespace SmartLogisticsSystem.Models
                                                              ,[Date] = @Date
                                                         WHERE Id = @Id";
 
+        public static readonly string INSERT_QUERY = @"INSERT INTO [dbo].[SmartLogistics]
+                                                               ([Division]
+                                                                ,[Product]
+                                                                ,[Date])
+                                                            VALUES
+                                                               (@Division
+                                                               ,@Product
+                                                               ,@Date)";
 
     }
 }

@@ -2,7 +2,7 @@ CREATE TABLE [dbo].[SmartLogistics](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Division] [nvarchar](50) NOT NULL,
 	[Product] [nvarchar](50) NOT NULL,
-	[Date] [date] NOT NULL,
+	[Date] [datetime] NOT NULL,
  CONSTRAINT [PK_SmartLogistics] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

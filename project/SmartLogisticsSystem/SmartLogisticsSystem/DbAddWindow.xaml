@@ -38,12 +38,11 @@
 
         </Grid>
 
-        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="GrdResults" Margin="5,5,5,5">
+        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="DgvResult" AutoGenerateColumns="False" Margin="5,5,5,5">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="품목 코드" />
-                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="분 류" />
-                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="제 품 명" />
-                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="등록일자" />
+                <DataGridTextColumn Width="1*" Binding="{Binding Division}" Header="분 류" />
+                <DataGridTextColumn Width="1*" Binding="{Binding Product}" Header="제 품 명" />
+                <DataGridTextColumn Width="1*" Binding="{Binding Date}" Header="등록일자" />
             </DataGrid.Columns>
         </DataGrid>
 

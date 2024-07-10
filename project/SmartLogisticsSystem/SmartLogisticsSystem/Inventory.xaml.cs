@@ -33,9 +33,14 @@ namespace SmartLogisticsSystem
         }
 
         // 실시간조회 버튼 클릭
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnReq_Click(object sender, RoutedEventArgs e)
         {
             List<SmartLogistics> smartLogistics = new List<SmartLogistics>();
+            IdTextBox.Clear();
+            ProdTextBox.Clear();
+            RedCheck.IsChecked = false;
+            BlueCheck.IsChecked = false;
+            GreenCheck.IsChecked = false;
 
             try
             {
@@ -69,7 +74,7 @@ namespace SmartLogisticsSystem
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
             if (DgvResult.SelectedItems.Count == 0)
             {
@@ -108,44 +113,11 @@ namespace SmartLogisticsSystem
                 MessageBox.Show($"삭제 오류 {ex.Message}");
             }
 
-            Button_Click(sender, e);
+            BtnReq_Click(sender, e);
         }
 
-        private void DgvResult_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            if (DgvResult.SelectedItem is SmartLogistics selectedSmartLogistics)
-            {
-                IdTextBox.Text = selectedSmartLogistics.Id.ToString();
-                ProdTextBox.Text = selectedSmartLogistics.Product.ToString();
-                DatePicker.SelectedDateTime = selectedSmartLogistics.Date.Date;
-                if (selectedSmartLogistics.Division.ToString() == "레드")
-                {
-                    RedCheck.IsChecked = true;
-                    BlueCheck.IsChecked = false;
-                    GreenCheck.IsChecked = false;
-                }
-                else if (selectedSmartLogistics.Division.ToString() == "블루")
-                {
-                    RedCheck.IsChecked = false;
-                    BlueCheck.IsChecked = true;
-                    GreenCheck.IsChecked = false;
-                }
-                else if (selectedSmartLogistics.Division.ToString() == "그린")
-                {
-                    RedCheck.IsChecked = false;
-                    BlueCheck.IsChecked = false;
-                    GreenCheck.IsChecked = true;
-                }
-                else // 다른 제품이라면 모든 체크를 해제
-                {
-                    RedCheck.IsChecked = false;
-                    BlueCheck.IsChecked = false;
-                    GreenCheck.IsChecked = false;
-                }
-            }
-        }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -198,7 +170,63 @@ namespace SmartLogisticsSystem
             {
                 MessageBox.Show(ex.Message);
             }
+            BtnReq_Click(sender, e);
+        }
+        private void DgvResult_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (DgvResult.SelectedItem is SmartLogistics selectedSmartLogistics)
+            {
+                IdTextBox.Text = selectedSmartLogistics.Id.ToString();
+                ProdTextBox.Text = selectedSmartLogistics.Product.ToString();
+                DatePicker.SelectedDateTime = selectedSmartLogistics.Date.Date;
+                if (selectedSmartLogistics.Division.ToString() == "레드")
+                {
+                    RedCheck.IsChecked = true;
+                    BlueCheck.IsChecked = false;
+                    GreenCheck.IsChecked = false;
+                }
+                else if (selectedSmartLogistics.Division.ToString() == "블루")
+                {
+                    RedCheck.IsChecked = false;
+                    BlueCheck.IsChecked = true;
+                    GreenCheck.IsChecked = false;
+                }
+                else if (selectedSmartLogistics.Division.ToString() == "그린")
+                {
+                    RedCheck.IsChecked = false;
+                    BlueCheck.IsChecked = false;
+                    GreenCheck.IsChecked = true;
+                }
+                else // 다른 제품이라면 모든 체크를 해제
+                {
+                    RedCheck.IsChecked = false;
+                    BlueCheck.IsChecked = false;
+                    GreenCheck.IsChecked = false;
+                }
+            }
         }
 
+
+        private void CheckBox_checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox clickedCheckBox = sender as CheckBox;
+
+            // 다른 체크박스들의 상태를 조정하여 하나만 선택되도록 만듭니다.
+            if (clickedCheckBox == RedCheck && clickedCheckBox.IsChecked == true)
+            {
+                BlueCheck.IsChecked = false;
+                GreenCheck.IsChecked = false;
+            }
+            else if (clickedCheckBox == BlueCheck && clickedCheckBox.IsChecked == true)
+            {
+                RedCheck.IsChecked = false;
+                GreenCheck.IsChecked = false;
+            }
+            else if (clickedCheckBox == GreenCheck && clickedCheckBox.IsChecked == true)
+            {
+                RedCheck.IsChecked = false;
+                BlueCheck.IsChecked = false;
+            }
+        }
     }
 }

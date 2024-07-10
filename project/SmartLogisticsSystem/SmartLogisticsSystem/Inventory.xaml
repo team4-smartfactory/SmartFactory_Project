@@ -26,17 +26,17 @@
                 <Label Content="등록일자" Height="24" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Left" Canvas.Left="495" Canvas.Top="3"/>
                 <mah:DateTimePicker Name="DatePicker" Width="153" Height="24" Canvas.Left="563" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top" />
                 <Label Content="분류" Height="24" FontSize="12" Canvas.Left="27" Canvas.Top="39" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.938,0.548"/>
-                <CheckBox Name="RedCheck" Content="R" Canvas.Left="70" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <CheckBox Name="GreenCheck" Content="G" Canvas.Left="106" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <CheckBox Name="BlueCheck" Content="B" Canvas.Left="143" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="False"/>
+                <CheckBox Name="RedCheck" Content="R" Canvas.Left="70" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="CheckBox_checked"/>
+                <CheckBox Name="GreenCheck" Content="G" Canvas.Left="106" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CheckBox_checked"/>
+                <CheckBox Name="BlueCheck" Content="B" Canvas.Left="143" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="False" Checked="CheckBox_checked"/>
 
-                <Button Content="조회" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="514" Canvas.Top="37" Click="Button_Click"/>
-                <Button Content="삭제" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="598" Canvas.Top="38" Click="Button_Click_1"/>
-                <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="682" Canvas.Top="37" Click="Button_Click_2"/>
+                <Button Content="조회" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="514" Canvas.Top="37" Click="BtnReq_Click"/>
+                <Button Content="삭제" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="598" Canvas.Top="38" Click="BtnDel_Click"/>
+                <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="682" Canvas.Top="37" Click="BtnSave_Click"/>
             </Canvas>
         </Border>
 
-        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="DgvResult" Margin="5,5,5,5" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedCellsChanged="DgvResult_SelectedCellsChanged" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="DgvResult" Margin="5,5,5,5" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedCellsChanged="DgvResult_SelectedCellsChanged" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns >
                 <DataGridTextColumn Binding="{Binding Id}" Width="1*" Header="품목 코드" />
                 <DataGridTextColumn Binding="{Binding Division}" Width="1*" Header="분 류" />

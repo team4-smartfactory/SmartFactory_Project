@@ -24,34 +24,26 @@
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,3,5,3" Grid.Column="0">
                 <Canvas Grid.Column="0">
 
-                    <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="182" Canvas.Top="11" Grid.Column="0" Click="BtnRun_Click"/>
+                    <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="30" Canvas.Left="182" Canvas.Top="11" Grid.Column="0" Click="BtnRun_Click"/>
                     <Button x:Name="BtnPause" Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="274" Canvas.Top="11" Click="BtnPause_Click"/>
-                    <Button x:Name="BtnSave" Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="363" Canvas.Top="11"/>
-                    <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Center" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="447" Canvas.Top="11" RenderTransformOrigin="-1.009,0.686"/>
-                    <Button x:Name="BtnConnect" Content="연결" Width="79" Height="30" Canvas.Left="90" Canvas.Top="10"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="BtnConnect_Click"/>
+                    <Button x:Name="BtnSave" Content="저장" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="30" Canvas.Left="374" Canvas.Top="12"/>
+                    <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="459" Canvas.Top="11" RenderTransformOrigin="0.514,0.501"/>
+                    <Button x:Name="BtnConnect" Content="연결" Width="80" Height="30" Canvas.Left="90" Canvas.Top="10"  HorizontalAlignment="Center" VerticalAlignment="Top" Click="BtnConnect_Click"/>
 
                 </Canvas>
             </Border>
 
         </Grid>
 
-        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="GrdResults" Margin="5,5,5,5">
+        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="GrdResults" Margin="5,5,5,5" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="품목 코드" />
-                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="분 류" />
-                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="제 품 명" />
-                <DataGridTextColumn Width="1*" Binding="{Binding check}" Header="등록일자" />
+                <DataGridTextColumn Width="1*" Binding="{Binding Division}" Header="분 류" />
+                <DataGridTextColumn Width="1*" Binding="{Binding Product}" Header="제 품 명" />
+                <DataGridTextColumn Width="1*" Binding="{Binding Date}" Header="등록일자" />
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label Grid.Column="1" HorizontalAlignment="Center" Background="LightGray" Width="80" Grid.RowSpan="2">
-            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
-        <Run Text="품목"/>
-        <Run Language="ko-kr" Text="코드"/>
-        <LineBreak/>
-        <Run Language="ko-kr"/>
-            </TextBlock>
-        </Label>
+        <Label Grid.Column="1" HorizontalAlignment="Center" Background="LightGray" Width="80" Grid.RowSpan="2"/>
 
         <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,5,0" Background="LightGray">
             <Label.Content>
@@ -71,7 +63,6 @@
             </Label.Content>
         </Label>
 
-        <TextBox Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
         <ComboBox Grid.Column="2" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.RowSpan="2"/>
         <TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
         <DatePicker Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,85,0,0" VerticalAlignment="Top" Width="120"/>

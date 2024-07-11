@@ -35,8 +35,8 @@
                 Background="#80000000"
                 Click="BtnGraph_Click">
             <StackPanel VerticalAlignment="Bottom">
-                <Image Source="/Image/search.png" Margin="0,15,0,0" Width="112" Height="107" Opacity="0.7"/>
-                <TextBlock Text="상품 현황" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="White" FontSize="16" Opacity="0.7"/>
+                <Image Source="/Image/graph.png" Margin="0,15,0,0" Width="112" Height="107" Opacity="0.7"/>
+                <TextBlock Text="재고 현황" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="White" FontSize="16" Opacity="0.7"/>
             </StackPanel>
         </Button>
     </Grid>

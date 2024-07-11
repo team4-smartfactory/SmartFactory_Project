@@ -10,13 +10,13 @@
 
     <Grid RenderTransformOrigin="0.503,0.538" Background ="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3.5*" />
-            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="0.4*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
@@ -24,11 +24,19 @@
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,3,5,3" Grid.Column="0">
                 <Canvas Grid.Column="0">
 
+<<<<<<< Updated upstream
                     <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="30" Canvas.Left="182" Canvas.Top="11" Grid.Column="0" Click="BtnRun_Click"/>
                     <Button x:Name="BtnPause" Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="274" Canvas.Top="11" Click="BtnPause_Click"/>
                     <Button x:Name="BtnSave" Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="363" Canvas.Top="11"/>
                     <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Center" VerticalAlignment="Center" Width="79" Height="30" Canvas.Left="447" Canvas.Top="11" RenderTransformOrigin="-1.009,0.686"/>
                     <Button x:Name="BtnConnect" Content="연결" Width="79" Height="30" Canvas.Left="90" Canvas.Top="10"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="BtnConnect_Click"/>
+=======
+                    <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="129" Canvas.Top="10" Grid.Column="0" Click="BtnRun_Click"/>
+                    <Button x:Name="BtnPause" Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="234" Canvas.Top="10" Click="BtnPause_Click"/>
+                    <Button x:Name="BtnSave" Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="338" Canvas.Top="10"/>
+                    <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="442" Canvas.Top="10" RenderTransformOrigin="0.514,0.501"/>
+                    <Button x:Name="BtnConnect" Content="연결" Width="80" Height="30" Canvas.Left="24" Canvas.Top="10"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="BtnConnect_Click"/>
+>>>>>>> Stashed changes
 
                 </Canvas>
             </Border>
@@ -44,6 +52,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
+<<<<<<< Updated upstream
         <Label Grid.Column="1" HorizontalAlignment="Center" Background="LightGray" Width="80" Grid.RowSpan="2">
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
         <Run Text="품목"/>
@@ -52,31 +61,40 @@
         <Run Language="ko-kr"/>
             </TextBlock>
         </Label>
+=======
+        <Label Grid.Column="1" HorizontalAlignment="Center" Background="DarkGray" Margin="0,3,0,3" Width="80" Grid.RowSpan="2" RenderTransformOrigin="0.692,0.529"/>
+>>>>>>> Stashed changes
 
-        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,5,0" Background="LightGray">
+        <Label HorizontalAlignment="Center" Margin="0,19,0,14" Background="DarkGray" Grid.Column="1">
             <Label.Content>
-                <TextBlock Text="분류" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <TextBlock Text="분류" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             </Label.Content>
         </Label>
 
-        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0,75,5,0" Background="LightGray">
+        <Label HorizontalAlignment="Center" Margin="0,20,0,343" Background="DarkGray" Grid.Column="1" Grid.Row="1">
             <Label.Content>
-                <TextBlock Text="제품명" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <TextBlock Text="제품명" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             </Label.Content>
         </Label>
 
-        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="1,112,0,0" Background="LightGray">
+        <Label HorizontalAlignment="Center" Margin="0,84,0,279" Background="DarkGray" Grid.Column="1" Grid.Row="1">
             <Label.Content>
-                <TextBlock Text="등록일자" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="등록일자" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             </Label.Content>
         </Label>
 
+<<<<<<< Updated upstream
         <TextBox Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
         <ComboBox Grid.Column="2" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.RowSpan="2"/>
         <TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
         <DatePicker Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,85,0,0" VerticalAlignment="Top" Width="120"/>
+=======
+        <ComboBox Grid.Column="2" HorizontalAlignment="Center" Margin="0,19,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
+        <DatePicker Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,84,0,0" VerticalAlignment="Top" Width="120"/>
+>>>>>>> Stashed changes
 
-        <Button Content="수정" Grid.Row="1" Grid.Column="2" Height="30" Width="70" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" />
+        <Button Content="수정" Grid.Row="1" Grid.Column="2" Height="30" Width="80" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" />
 
 
     </Grid>

@@ -1,0 +1,43 @@
+﻿<Page x:Class="teamproject_2024.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:teamproject_2024"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <!-- 메뉴버튼 -->
+    <Grid>
+        <Button HorizontalAlignment="Left" Margin="70,96,0,0" 
+                VerticalAlignment="Top" Height="180" Width="180"
+                Background="#80000000"
+                Click="BtnAdd_Click">
+            <StackPanel VerticalAlignment="Bottom">
+                <Image Source="/Image/box.png" Width="100" Height="100" Opacity="0.7" Margin="0,10,0,0"/>
+                <TextBlock Text="상품 등록" HorizontalAlignment="Center" Margin="0,20,0,0" Foreground="White" FontSize="16" Opacity="0.7"/>
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Center" Margin="0,96,0,0" 
+                VerticalAlignment="Top" Height="180" Width="180" 
+                Background="#80000000"
+                Click="BtnView_Click">
+            <StackPanel VerticalAlignment="Bottom">
+                <Image Source="/Image/search.png" Margin="0,15,0,0" Width="112" Height="107" Opacity="0.7"/>
+                <TextBlock Text="상품 조회" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="White" FontSize="16" Opacity="0.7"/>
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="551,96,0,0" 
+                VerticalAlignment="Top" Height="180" Width="180" 
+                Background="#80000000"
+                Click="BtnGraph_Click">
+            <StackPanel VerticalAlignment="Bottom">
+                <Image Source="/Image/search.png" Margin="0,15,0,0" Width="112" Height="107" Opacity="0.7"/>
+                <TextBlock Text="상품 현황" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="White" FontSize="16" Opacity="0.7"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

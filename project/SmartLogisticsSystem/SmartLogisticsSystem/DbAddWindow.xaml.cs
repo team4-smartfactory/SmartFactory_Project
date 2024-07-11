@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO.Ports;
 using System.IO;
+using MahApps.Metro.Controls;
 
 namespace SmartLogisticsSystem
 {
@@ -20,7 +21,7 @@ namespace SmartLogisticsSystem
     // <주의사항>아두이노 IDE와 C#의 프로그램이 같은 포트를 쓸 경우 프로그램 충돌이 난다.여러가지 해결 방법이 있겠지만,
     // 그냥 C# 프로그램을 실행시킬 때는 아두이노 IDE를 잠시 꺼주면 되겠다.
     /// </summary>
-    public partial class DbAddWindow : Window
+    public partial class DbAddWindow : MetroWindow
     {
         SerialPort port = new SerialPort();
         public DbAddWindow()

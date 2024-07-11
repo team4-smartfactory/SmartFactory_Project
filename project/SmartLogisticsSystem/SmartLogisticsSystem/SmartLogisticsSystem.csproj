@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Image\Logistic.png" />
+    <None Remove="Image\23683_14415_4015.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,11 +19,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\Logistic.png" />
+    <Folder Include="Helper\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helper\" />
+    <Resource Include="Image\23683_14415_4015.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

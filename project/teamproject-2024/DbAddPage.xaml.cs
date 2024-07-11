@@ -63,7 +63,7 @@ namespace teamproject_2024
         {
             try
             {
-                port.PortName = "COM5";
+                port.PortName = "COM3";
                 port.BaudRate = 9600;
                 port.DataBits = 8;
                 port.Parity = Parity.None;

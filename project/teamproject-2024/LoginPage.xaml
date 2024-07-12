@@ -83,8 +83,9 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Background="#80000000">
             <TextBox x:Name="txtID" Width="200" Height="30" Margin="20,20" VerticalContentAlignment="Center" Text="ID"
                      GotFocus="txtID_GotFocus" LostFocus="txtID_LostFocus" PreviewKeyDown="TextBox_PreviewKeyDown"/>
-            <TextBox x:Name="txtPassword" Width="200" Height="30" Margin="0,10" VerticalContentAlignment="Center" Text="Password"
-                     Foreground="LightGray" GotFocus="txtPassword_GotFocus" LostFocus="txtPassword_LostFocus" PreviewKeyDown="TextBox_PreviewKeyDown"/>
+            <PasswordBox x:Name="txtPassword" Width="200" Height="30" Margin="0,10" VerticalContentAlignment="Center"
+             PasswordChar="●" Password="Password"
+             Foreground="LightGray" GotFocus="txtPassword_GotFocus" LostFocus="txtPassword_LostFocus" PreviewKeyDown="TextBox_PreviewKeyDown"/>
             <Button Content="로그인" Width="100" Height="30" Click="BtnLogin_Click" Margin="20"/>
         </StackPanel>
 

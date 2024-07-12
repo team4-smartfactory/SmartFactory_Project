@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using MahApps.Metro.Controls;
@@ -23,7 +24,7 @@ namespace teamproject_2024
         private async void Login()
         {
             string id = txtID.Text;
-            string password = txtPassword.Text;
+            string password = txtPassword.Password;
 
             if (IsValidUser(id, password))
             {
@@ -75,19 +76,21 @@ namespace teamproject_2024
 
         private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (txtPassword.Text == "Password")
+            var passwordBox = sender as PasswordBox;
+            if (passwordBox.Password == "Password")
             {
-                txtPassword.Text = "";
-                txtPassword.Foreground = Brushes.Black;
+                passwordBox.Password = "";
+                passwordBox.Foreground = Brushes.Black;
             }
         }
 
         private void txtPassword_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPassword.Text))
+            var passwordBox = sender as PasswordBox;
+            if (string.IsNullOrEmpty(passwordBox.Password))
             {
-                txtPassword.Text = "Password";
-                txtPassword.Foreground = Brushes.LightGray;
+                passwordBox.Password = "Password";
+                passwordBox.Foreground = Brushes.LightGray;
             }
         }
 

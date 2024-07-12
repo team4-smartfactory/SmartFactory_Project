@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace teamproject_2024
 {
@@ -29,7 +31,7 @@ namespace teamproject_2024
         }
 
         // 실시간조회 버튼 클릭
-        private void BtnReq_Click(object sender, RoutedEventArgs e)
+        private async void BtnReq_Click(object sender, RoutedEventArgs e)
         {
             List<SmartLogistics> smartLogistics = new List<SmartLogistics>();
             IdTextBox.Clear();
@@ -66,15 +68,16 @@ namespace teamproject_2024
             }
             catch (Exception ex)
             {
-                MessageBox.Show("데이터 조회 중 오류가 발생했습니다: " + ex.Message);
+                await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "오류", "데이터 조회 중 오류가 발생했습니다: " + ex.Message);
             }
         }
 
-        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        private async void BtnDel_Click(object sender, RoutedEventArgs e)
         {
             if (DgvResult.SelectedItems.Count == 0)
             {
-                MessageBox.Show("삭제할 품목을 선택하세요");
+                await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "품목", "삭제할 품목을 선택하세요");
+
             }
 
             try
@@ -95,25 +98,26 @@ namespace teamproject_2024
 
                     if (delRes == DgvResult.SelectedItems.Count)
                     {
-                        MessageBox.Show($"{delRes}건 삭제");
+                        await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "삭제", $"{delRes}건 삭제");
+
                     }
                     else
                     {
-                        MessageBox.Show($"{DgvResult.SelectedItems.Count}건중 {delRes}건 삭제");
+                        await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "삭제", $"{DgvResult.SelectedItems.Count}건중 {delRes}건 삭제");
                     }
 
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"삭제 오류 {ex.Message}");
+                await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "오류", $"삭제 오류 {ex.Message}");
             }
 
             BtnReq_Click(sender, e);
         }
 
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        private async void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -153,18 +157,18 @@ namespace teamproject_2024
                     if (insRes > 0)
                     {
                         // this 메시지박스의 부모창이 누구냐, FrmLoginUser
-                        MessageBox.Show("저장");
+                        await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "저장", "저장 성공!");
                         //MessageBox.Show("저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("저장");
+                        await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "저장", "저장 실패!");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "오류", ex.Message);
             }
             BtnReq_Click(sender, e);
         }

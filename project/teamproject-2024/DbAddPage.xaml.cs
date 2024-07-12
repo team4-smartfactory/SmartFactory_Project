@@ -175,7 +175,32 @@ namespace teamproject_2024
             }
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+
+        private void ProTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (ProTextBox != null && textBox.Text == "제품명 입력")
+            {
+                textBox.Text = string.Empty;
+                textBox.Foreground = new SolidColorBrush(Colors.Black); // 사용자 입력시 텍스트 색상
+            }
+        }
+
+        private void ProTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                SetWatermark(textBox, "제품명 입력");
+            }
+        }
+        private void SetWatermark(TextBox textBox, string watermark)
+        {
+            textBox.Text = watermark;
+            textBox.Foreground = new SolidColorBrush(Colors.Gray); // 워터마크 텍스트 색상
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {

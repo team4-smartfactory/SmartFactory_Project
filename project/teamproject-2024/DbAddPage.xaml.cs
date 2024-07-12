@@ -176,5 +176,68 @@ namespace teamproject_2024
                 await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "오류", "데이터 조회 중 오류가 발생했습니다: " + ex.Message);
             }
         }
+
+
+        private void ProTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (ProTextBox != null && textBox.Text == "제품명 입력")
+            {
+                textBox.Text = string.Empty;
+                textBox.Foreground = new SolidColorBrush(Colors.Black); // 사용자 입력시 텍스트 색상
+            }
+        }
+
+        private void ProTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                SetWatermark(textBox, "제품명 입력");
+            }
+        }
+        private void SetWatermark(TextBox textBox, string watermark)
+        {
+            textBox.Text = watermark;
+            textBox.Foreground = new SolidColorBrush(Colors.Gray); // 워터마크 텍스트 색상
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(SmartLogisticsSystem.Helpers.Common.CONNSTRING))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(SmartLogisticsSystem.Models.SmartLogistics.INSERT_QUERY, conn);
+
+                    var selectedDiviItem = DiviComboBox.SelectedItem as ComboBoxItem;
+                    string division = selectedDiviItem?.Content.ToString();
+                    SqlParameter prmDivi = new SqlParameter("@Division", division);
+                    cmd.Parameters.Add(prmDivi);
+                    SqlParameter prmProduct = new SqlParameter("@Product", ProTextBox.Text);
+                    cmd.Parameters.Add(prmProduct);
+                    SqlParameter prmDate = new SqlParameter("@Date", DatePicker.SelectedDateTime);
+                    cmd.Parameters.Add(prmDate);
+
+                    var result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "저장", "저장성공!");
+                    }
+                    else
+                    {
+                        await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "실패", "저장실패!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                await DialogManager.ShowMessageAsync(Window.GetWindow(this) as MetroWindow, "오류" ,"오류 발생" + ex.Message);
+            }
+            Select_Data();
+        }
     }
 }

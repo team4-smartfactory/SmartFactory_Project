@@ -13,9 +13,10 @@ namespace teamproject_2024
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen; // 화면 중앙에 표시되도록 설정
 
             //MainFrame.LayoutUpdated += MainFrame_LayoutUpdated;
-            MainFrame.Navigated += MainFrame_Navigated;
+            //MainFrame.Navigated += MainFrame_Navigated;
         }
 
 

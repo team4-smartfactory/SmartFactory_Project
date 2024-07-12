@@ -9,66 +9,87 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DbAddPage">
 
-    <Grid RenderTransformOrigin="0.503,0.538" Background ="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*" />
-            <RowDefinition Height="2*" />
-        </Grid.RowDefinitions>
+    <Grid>
+        <!-- Background Grid with opacity -->
+        <Grid Background="#80000000" Opacity="0.7"/>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3.5*" />
-            <ColumnDefinition Width="0.5*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
+        <!-- Content Grid -->
+        <Grid RenderTransformOrigin="0.503,0.538">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0">
-            <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,3,5,3" Grid.Column="0">
-                <Canvas Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3.5*" />
+                <ColumnDefinition Width="1.5*" />
+            </Grid.ColumnDefinitions>
 
-                    <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="278" Canvas.Top="13" Grid.Column="0" Click="BtnRun_Click"/>
-                    <Button x:Name="BtnPause" Content="일시정지" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="370" Canvas.Top="13" Click="BtnPause_Click"/>
-                    <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="30" Canvas.Left="459" Canvas.Top="13" RenderTransformOrigin="0.514,0.501"/>
-                    <Button x:Name="BtnConnect" Content="연결" Width="80" Height="30" Canvas.Left="186" Canvas.Top="12"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="BtnConnect_Click"/>
+            <Grid Grid.Row="0" Grid.Column="0" Opacity="1">
+                <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,5,5,5" Grid.Column="0">
+                    <Canvas Grid.Column="0">
 
-                </Canvas>
-            </Border>
+                        <Button x:Name="BtnRun" Content="실행" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="30" Canvas.Left="289" Grid.Column="0" Click="BtnRun_Click" Canvas.Top="12"/>
+                        <Button x:Name="BtnPause" Content="일시정지" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="374" Canvas.Top="12" Click="BtnPause_Click"/>
+                        <Button x:Name="BtnClose" Content="종료" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="30" Canvas.Left="459" Canvas.Top="12" RenderTransformOrigin="0.514,0.501"/>
+                        <Button x:Name="BtnConnect" Content="연결" Width="80" Height="30" Canvas.Left="204" Canvas.Top="12"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnConnect_Click"/>
+
+                    </Canvas>
+                </Border>
+            </Grid>
+
+            <DataGrid Grid.Row="2" Grid.Column="0" x:Name="GrdResults" Margin="5,5,5,5" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="1*" Binding="{Binding Division}" Header="분 류" />
+                    <DataGridTextColumn Width="1*" Binding="{Binding Product}" Header="제 품 명" />
+                    <DataGridTextColumn Width="1*" Binding="{Binding Date}" Header="등록일자" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <GroupBox Grid.Column="1" Grid.RowSpan="2" Margin="0,5,0,5">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                                   Content="분류" Foreground="White" FontWeight="Bold"
+                                   VerticalAlignment="Top" HorizontalAlignment="Right"
+                                   Margin="0,16,10,0"/>
+                    <Label Grid.Row="1" Grid.Column="0"
+                                   Content="제품명" Foreground="White" FontWeight="Bold"
+                                   VerticalAlignment="Center" HorizontalAlignment="Right"
+                                   Margin="10,0"/>
+                    <Label Grid.Row="2" Grid.Column="0"
+                                   Content="등록일자" Foreground="White" FontWeight="Bold"
+                                   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2,0,0,0"/>
+
+                    <ComboBox x:Name="DiviComboBox" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="0,20,0,0" 
+                              VerticalAlignment="Top" Width="120" Height="26">
+                        <ComboBoxItem Content="RED" />
+                        <ComboBoxItem Content="BLUE" />
+                        <ComboBoxItem Content="GREEN" />
+                    </ComboBox>
+                    <TextBox x:Name="ProTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" 
+                             TextWrapping="Wrap" Text="제품명 입력" Foreground="Gray" 
+                             VerticalAlignment="Center" Width="120" Height="26"
+                             GotFocus="ProTextBox_GotFocus" LostFocus="ProTextBox_LostFocus"/>
+
+                    <mah:DateTimePicker x:Name="DatePicker" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="120"/>
+
+                </Grid>
+            </GroupBox>
+            <Button Content="저장" Grid.Row="1" Grid.Column="1" Height="30" Width="80" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" />
 
         </Grid>
-
-        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="GrdResults" Margin="5,5,5,5" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Width="1*" Binding="{Binding Division}" Header="분 류" />
-                <DataGridTextColumn Width="1*" Binding="{Binding Product}" Header="제 품 명" />
-                <DataGridTextColumn Width="1*" Binding="{Binding Date}" Header="등록일자" />
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <Label Grid.Column="1" HorizontalAlignment="Center" Background="LightGray" Width="80" Grid.RowSpan="2"/>
-
-        <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,158,10,207" Background="LightGray">
-            <TextBlock Text="분류" HorizontalAlignment="Right" VerticalAlignment="Center" />
-        </Label>
-
-        <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,206,10,154" Background="LightGray">
-            <TextBlock Text="제품명" HorizontalAlignment="Right" VerticalAlignment="Center" />
-        </Label>
-
-        <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="0,251,0,114" Background="LightGray">
-            <TextBlock Text="등록일자" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </Label>
-
-        <ComboBox x:Name="DiviComboBox" Grid.Column="2" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Row="1">
-            <ComboBoxItem Content="RED" />
-            <ComboBoxItem Content="BLUE" />
-            <ComboBoxItem Content="GREEN" />
-        </ComboBox>
-        <TextBox x:Name="ProTextBox" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,206,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
-        <mah:DateTimePicker x:Name="DatePicker" Grid.Column="2" HorizontalAlignment="Center" Margin="0,251,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-
-        <Button x:Name="BtnSave" Content="저장" Grid.Row="1" Grid.Column="2" Height="30" Width="70" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="BtnSave_Click" />
-
-
-
-
     </Grid>
 </Page>

@@ -8,44 +8,62 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InventoryPage">
+    <Grid>
+        <!-- Background Grid with opacity -->
+        <Grid Background="#80000000" Opacity="0.7"/>
+        <!-- Content Grid -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="95"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
 
-    <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.ColumnSpan="2">
-            <Label Content="재고 조회" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0.5" Margin="5,5,5,5">
+                <Canvas>
+                    <Label Content="품목코드" Height="25" VerticalAlignment="Top" FontSize="12" 
+                           HorizontalAlignment="Center" Canvas.Left="3" Canvas.Top="12"
+                           Foreground="White" FontWeight="Bold"/>
+                    <TextBox x:Name="IdTextBox" Width="153" Height="24" VerticalAlignment="Top" Canvas.Left="66" Canvas.Top="13" HorizontalAlignment="Center"/>
+                    <Label Content="제품명" Height="24" VerticalAlignment="Top" FontSize="12" 
+                           Canvas.Left="259" Canvas.Top="13" HorizontalAlignment="Center"
+                           Foreground="White" FontWeight="Bold"/>
+                    <TextBox x:Name="ProdTextBox" Width="153" Height="24" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="13" HorizontalAlignment="Center"/>
+                    <Label Content="등록일자" Height="24" VerticalAlignment="Top" FontSize="12" 
+                           HorizontalAlignment="Center" Canvas.Left="495" Canvas.Top="12"
+                           Foreground="White" FontWeight="Bold"/>
+                    <Label Content="분류" Height="24" FontSize="12" 
+                           Canvas.Left="27" Canvas.Top="48" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                           RenderTransformOrigin="0.938,0.548" Foreground="White" FontWeight="Bold"/>
+
+                    <CheckBox x:Name="RedCheck" Canvas.Left="70" Canvas.Top="51" 
+                              HorizontalAlignment="Center" VerticalAlignment="Top" Checked="CheckBox_checked"
+                              Foreground="White" FontWeight="Bold"/>
+                    <CheckBox x:Name="GreenCheck" Canvas.Left="118" Canvas.Top="51" 
+                              HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CheckBox_checked" 
+                              Foreground="White" FontWeight="Bold"/>
+                    <CheckBox x:Name="BlueCheck" Canvas.Left="169" Canvas.Top="51" 
+                              HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="False" Checked="CheckBox_checked" 
+                              Foreground="White" FontWeight="Bold"/>
+
+                    <Button Content="조회" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="529" Canvas.Top="47" Click="BtnReq_Click"/>
+                    <Button Content="삭제" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="614" Canvas.Top="47" Click="BtnDel_Click" RenderTransformOrigin="0.567,1.008"/>
+                    <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="699" Canvas.Top="47" Click="BtnSave_Click" RenderTransformOrigin="0.491,1.866"/>
+                    <mah:DateTimePicker Name="DatePicker" Width="153" Height="24" Canvas.Left="563" Canvas.Top="13" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                </Canvas>
+            </Border>
+
+            <DataGrid Grid.Row="1" Grid.Column="0" x:Name="DgvResult" Margin="5,5,5,5" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedCellsChanged="DgvResult_SelectedCellsChanged" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Binding="{Binding Id}" Width="1*" Header="품목 코드" />
+                    <DataGridTextColumn Binding="{Binding Division}" Width="1*" Header="분 류" />
+                    <DataGridTextColumn Binding="{Binding Product}" Width="1*" Header="제 품 명" />
+                    <DataGridTextColumn Binding="{Binding Date}" Width="1*" Header="등록일자" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="R" HorizontalAlignment="Left" Margin="98,52,0,0" VerticalAlignment="Top" Height="29" Foreground="White" FontWeight="Bold"/>
+            <Label Content="G" HorizontalAlignment="Left" Margin="148,52,0,0" VerticalAlignment="Top" Height="29" Foreground="White" FontWeight="Bold"/>
+            <Label Content="B" HorizontalAlignment="Left" Margin="200,52,0,0" VerticalAlignment="Top" Height="29" Foreground="White" FontWeight="Bold"/>
+
         </Grid>
-
-        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0.5" Margin="5,0,5,5">
-            <Canvas>
-                <Label Content="품목코드" Height="24" VerticalAlignment="Top" Margin="3" FontSize="12"/>
-                <TextBox x:Name="IdTextBox" Width="153" Height="24" VerticalAlignment="Top" Canvas.Left="66" Canvas.Top="4" HorizontalAlignment="Center"/>
-                <Label Content="제품명" Height="24" VerticalAlignment="Top" FontSize="12" Canvas.Left="259" Canvas.Top="4"/>
-                <TextBox x:Name="ProdTextBox" Width="153" Height="24" VerticalAlignment="Center" Canvas.Left="310" Canvas.Top="4" HorizontalAlignment="Left"/>
-                <Label Content="등록일자" Height="24" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Left" Canvas.Left="495" Canvas.Top="3"/>
-                <Label Content="분류" Height="24" FontSize="12" Canvas.Left="27" Canvas.Top="39" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.938,0.548"/>
-                <CheckBox x:Name="RedCheck" Content="R" Canvas.Left="70" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="CheckBox_checked"/>
-                <CheckBox x:Name="GreenCheck" Content="G" Canvas.Left="106" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CheckBox_checked"/>
-                <CheckBox x:Name="BlueCheck" Content="B" Canvas.Left="143" Canvas.Top="42" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="False" Checked="CheckBox_checked"/>
-
-                <Button Content="조회" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="514" Canvas.Top="37" Click="BtnReq_Click"/>
-                <Button Content="삭제" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="598" Canvas.Top="38" Click="BtnDel_Click"/>
-                <Button Content="저장" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Height="30" Canvas.Left="682" Canvas.Top="37" Click="BtnSave_Click"/>
-                <mah:DateTimePicker Name="DatePicker" Width="153" Height="24" Canvas.Left="563" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            </Canvas>
-        </Border>
-
-        <DataGrid Grid.Row="2" Grid.Column="0" x:Name="DgvResult" Margin="5,5,5,5" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedCellsChanged="DgvResult_SelectedCellsChanged" AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns >
-                <DataGridTextColumn Binding="{Binding Id}" Width="1*" Header="품목 코드" />
-                <DataGridTextColumn Binding="{Binding Division}" Width="1*" Header="분 류" />
-                <DataGridTextColumn Binding="{Binding Product}" Width="1*" Header="제 품 명" />
-                <DataGridTextColumn Binding="{Binding Date}" Width="1*" Header="등록일자" />
-            </DataGrid.Columns>
-        </DataGrid>
-
     </Grid>
 </Page>

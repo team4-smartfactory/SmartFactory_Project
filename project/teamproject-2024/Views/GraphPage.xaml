@@ -8,9 +8,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GraphPage" >
-
-    <Grid Background="White">
-        <lvc:PieChart Series="{Binding Series}" Width="200" Height="200" Grid.Row="1"/>
+    <Grid>
+        <!-- Background Grid with opacity -->
+        <Grid Background="#80000000" Opacity="0.7"/>
+        <!-- Content Grid -->
+        <Grid >
+            <lvc:PieChart Series="{Binding Series}" Width="200" Height="200" Grid.Row="1"/>
+        </Grid>
     </Grid>
         
 </Page>

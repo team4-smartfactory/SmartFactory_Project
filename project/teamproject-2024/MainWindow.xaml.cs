@@ -15,7 +15,7 @@ namespace teamproject_2024
             InitializeComponent();
 
             //MainFrame.LayoutUpdated += MainFrame_LayoutUpdated;
-            MainFrame.Navigated += MainFrame_Navigated;
+            //MainFrame.Navigated += MainFrame_Navigated;
         }
 
 

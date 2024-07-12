@@ -16,6 +16,21 @@ IoT 개발자과정 프로젝트
 ## 작동 동영상
 
 
+
+
+
+https://github.com/user-attachments/assets/84928d6f-f17b-45eb-b09d-f24f1dec2a21
+
+
+
+
+
+https://github.com/user-attachments/assets/3e2f5e09-9986-4fcf-8e6e-06e8a0cf47a2
+
+
+
+
+
 ## UI
 - LOGIN UI
 

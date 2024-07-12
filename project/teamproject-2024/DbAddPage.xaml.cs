@@ -63,7 +63,7 @@ namespace teamproject_2024
         {
             try
             {
-                port.PortName = "COM3";
+                port.PortName = "COM5";
                 port.BaudRate = 9600;
                 port.DataBits = 8;
                 port.Parity = Parity.None;
@@ -173,6 +173,44 @@ namespace teamproject_2024
             {
                 MessageBox.Show("데이터 조회 중 오류가 발생했습니다: " + ex.Message);
             }
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(SmartLogisticsSystem.Helpers.Common.CONNSTRING))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(SmartLogisticsSystem.Models.SmartLogistics.INSERT_QUERY, conn);
+
+                    var selectedDiviItem = DiviComboBox.SelectedItem as ComboBoxItem;
+                    string division = selectedDiviItem?.Content.ToString();
+                    SqlParameter prmDivi = new SqlParameter("@Division", division);
+                    cmd.Parameters.Add(prmDivi);
+                    SqlParameter prmProduct = new SqlParameter("@Product", ProTextBox.Text);
+                    cmd.Parameters.Add(prmProduct);
+                    SqlParameter prmDate = new SqlParameter("@Date", DatePicker.SelectedDateTime);
+                    cmd.Parameters.Add(prmDate);
+
+                    var result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("저장성공!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("저장실패!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"오류 : {ex.Message}");
+            }
+            Select_Data();
         }
     }
 }

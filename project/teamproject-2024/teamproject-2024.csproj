@@ -12,7 +12,7 @@
   <ItemGroup>
     <None Remove="Image\23683_14415_4015.jpg" />
     <None Remove="Image\box.png" />
-    <None Remove="Image\Logistic.png" />
+    <None Remove="Image\graph.png" />
     <None Remove="Image\search.png" />
   </ItemGroup>
 
@@ -34,7 +34,9 @@
     <Resource Include="Image\box.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Image\Logistic.png" />
+    <Resource Include="Image\graph.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Image\search.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

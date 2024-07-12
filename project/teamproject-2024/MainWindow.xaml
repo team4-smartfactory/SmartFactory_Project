@@ -10,7 +10,7 @@
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:teamproject_2024" 
     mc:Ignorable="d"
-    Title="Smart Logistic System" Height="450" Width="800" Loaded="MetroWindow_Loaded">
+    Title="Smart Logistic System" Height="450" Width="800" Loaded="MetroWindow_Loaded" ResizeMode="NoResize">
 
     <mah:MetroWindow.IconTemplate>
         <DataTemplate>

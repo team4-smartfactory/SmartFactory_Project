@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
+using System.Runtime.CompilerServices;
 
 namespace teamproject_2024
 {
@@ -140,6 +141,42 @@ namespace teamproject_2024
         }
 
         private void Select_Data()
+        {
+            List<SmartLogistics> smartLogistics = new List<SmartLogistics>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(SmartLogisticsSystem.Helpers.Common.CONNSTRING))
+                {
+                    conn.Open();
+
+                    var cmd = new SqlCommand(SmartLogisticsSystem.Models.SmartLogistics.SELECT_QUERY, conn);
+                    var adapter = new SqlDataAdapter(cmd);
+                    var dSet = new DataSet();
+                    adapter.Fill(dSet, "SmartLogistics");
+
+                    foreach (DataRow row in dSet.Tables["SmartLogistics"].Rows)
+                    {
+                        var smartlogistcs = new SmartLogistics()
+                        {
+                            Id = Convert.ToInt32(row["Id"]),
+                            Division = Convert.ToString(row["Division"]),
+                            Product = Convert.ToString(row["Product"]),
+                            Date = Convert.ToDateTime(row["Date"]),
+                        };
+
+                        smartLogistics.Add(smartlogistcs);
+                    }
+                    GrdResults.ItemsSource = smartLogistics;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("데이터 조회 중 오류가 발생했습니다: " + ex.Message);
+            }
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             List<SmartLogistics> smartLogistics = new List<SmartLogistics>();
 
